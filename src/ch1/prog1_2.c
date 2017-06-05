@@ -1,4 +1,4 @@
-#include 	"../include/ourhdr.h"
+#include 	"../../include/ourhdr.h"
 
 #define BUFFSIZE	8192
 
@@ -9,6 +9,9 @@ int main( void )
 
 	while(  (n = read( STDIN_FILENO, buf, BUFFSIZE)) > 0 )
 	{
+		// write out the timestamp of the entry and the category 
+		//  to file the entry under.
+		{	err_sys( "write error" ); }
 		if( write( STDOUT_FILENO, buf, n) != n )
 		{ 	err_sys( "write error" ); }
 	}

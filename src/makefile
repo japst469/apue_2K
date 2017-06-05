@@ -2,7 +2,7 @@ IDIR = ../include
 LDIR = ../lib
 ODIR = obj
 
-CC=cc
+CC=g++
 CFLAGS=-I $(IDIR)
 
 LIBS = 
@@ -10,11 +10,11 @@ LIBS =
 _DEPS = ourhdr.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = prog1_5.o err.o
+_OBJ = journal.o err.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-prog: $(OBJ)
+jj: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
